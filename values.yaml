@@ -1,0 +1,43 @@
+projectId: app-2MLbUYFtQNFpz3KeeGEHYb
+appName: hipstershop
+description: This is a sample application for a boutique shop
+imageURL: https://boutiqueshop.com/logo.png
+version: 1.0.0
+hostName: hipster.com
+clusterURL: https://kubernetes.default.svc
+clusterIPs:
+- 800.800.900
+- 790.890.789
+monitoring: true
+microservices:
+  CartService:
+    serviceName: cartservice
+    avgReplicas: 2
+    minReplicas: 1
+    maxReplicas: 8
+    dockerImage: shenalisj/hisptershop:1.0.0
+    containerPort: 8080
+  OrderService:
+    serviceName: orderservice
+    avgReplicas: 1
+    minReplicas: 1
+    maxReplicas: 1
+    dockerImage: "1"
+    containerPort: 1
+    serviceEvaluation:
+      kubeConfigType:
+      - statefulSetBased
+  UserService:
+    serviceName: userservice
+    avgReplicas: 1
+    minReplicas: 1
+    maxReplicas: 1
+    dockerImage: "1"
+    containerPort: 1
+evaluationResult:
+  language: Java
+  database: MySQL
+  microservices:
+  - CartService
+  - OrderService
+  - UserService
